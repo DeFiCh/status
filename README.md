@@ -1,3 +1,8 @@
+# DeFiChain Status
+
+Simple static status page to track the most important statuses.
+Fork of https://github.com/bderenzo/tinystatus
+
 ## Features
 
 - Parallel checks
