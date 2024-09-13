@@ -1,0 +1,4 @@
+http,   200,    Blockchain MainNet,        https://ocean.defichain.com/v0/mainnet/stats
+http,   200,    Ocean MainNet,             https://ocean.defichain.com/v0/mainnet/stats
+http,   200,    DeFiChain.com,             https://defichain.com/
+http,   200,    DeFi Scan,                 https://defiscan.live/
