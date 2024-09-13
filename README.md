@@ -1,7 +1,3 @@
-# Tinystatus
-
-tinystatus generate an html status page via shell script.
-
 ## Features
 
 - Parallel checks
@@ -14,12 +10,9 @@ tinystatus generate an html status page via shell script.
 
 ## Setup
 
-To install tinystatus:
-
-- Clone the repository and go to the created directory
 - Edit the checks file `checks.csv`
 - To add incidents or maintenance, edit `incidents.txt`
-- Generate status page `./tinystatus > index.html`
+- Generate status page `./generate-html.sh > index.html`
 - Serve the page with your favorite web server
 
 ## Configuration file

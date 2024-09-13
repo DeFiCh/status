@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
 # Configuration variables
-TITLE="Tinystatus"
-HEADER="Global Status"
+TITLE="DeFiChain Status"
+HEADER="DeFiChain Status"
 CHECKS_FILE="${1:-checks.csv}"
 INCIDENTS_FILE="${2:-incidents.txt}"
 OUTAGE_RC=false
