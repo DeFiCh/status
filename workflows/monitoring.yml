@@ -21,27 +21,41 @@ jobs:
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y curl netcat iputils-ping
 
-      # Step 3: Run the shell script and update index.html
+      # Step 3: Save current index.html to archive
+      - name: Save current index.html to archive
+        run: |
+          # Ensure the script is executable
+          chmod +x archive.sh
+
+          # Save the current index.html to archive
+          if [ -f index.html ]; then
+            ./archive.sh
+          else
+            echo "index.html does not exist. Skipping archive.sh"
+          fi
+
+      # Step 4: Run the script to update index.html
       - name: Run script and update index.html
         run: |
           # Ensure the script is executable
           chmod +x generate-html.sh
 
-          # Run the script and redirect output to index.html
+          # Run the script to generate index.html
           ./generate-html.sh > index.html
 
-      # Step 4: Commit and push changes to the repository
-      - name: Commit and push updated index.html
+      # Step 5: Commit and push changes to the repository
+      - name: Commit and push updated files
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
           git add index.html
-          git commit -m "Update index.html with latest script output" || echo "No changes to commit"
-          git push
+          git add archive/ # Add the archive directory
+          git commit -m "Update index.html and archive with latest script output" || echo "No changes to commit"
+          git push --force
 
-      # Step 5: Deploy to GitHub Pages
+      # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
