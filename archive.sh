@@ -14,5 +14,4 @@ if [ -f index.html ]; then
     echo "Saved index.html to ${ARCHIVE_FILE}"
 else
     echo "index.html does not exist. Skipping archive save."
-    exit 1
 fi
