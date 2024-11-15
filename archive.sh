@@ -3,6 +3,7 @@
 # Create the archive directory if it doesn't exist
 ARCHIVE_DIR="./archive"
 mkdir -p "${ARCHIVE_DIR}"
+touch "${ARCHIVE_DIR}/.gitkeep"
 
 # Generate the timestamp for the archive file
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
