@@ -13,6 +13,14 @@ ARCHIVE_FILE="${ARCHIVE_DIR}/index_${TIMESTAMP}.html"
 if [ -f index.html ]; then
     cp index.html "${ARCHIVE_FILE}"
     echo "Saved index.html to ${ARCHIVE_FILE}"
+
+    # Delete old archives keeping only the last few.
+    # Reach into the commits for older.
+    MAX_FILES=$((1 * 20))
+    FILE_COUNT=$(ls -1 "${ARCHIVE_DIR}"/index_*.html 2>/dev/null | wc -l)
+    if [ "$FILE_COUNT" -gt "$MAX_FILES" ]; then
+        ls -t "${ARCHIVE_DIR}"/index_*.html | tail -n +$((MAX_FILES + 1)) | xargs rm -f
+    fi
 else
     echo "index.html does not exist. Skipping archive save."
 fi
