@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
 # Configuration variables
-TITLE="Tinystatus"
-HEADER="Global Status"
+TITLE="DeFiChain Status"
+HEADER="DeFiChain Status"
 CHECKS_FILE="${1:-checks.csv}"
 INCIDENTS_FILE="${2:-incidents.txt}"
 OUTAGE_RC=false
@@ -47,7 +47,7 @@ check(){
             [ "${rc}" -ne "${expected_rc}" ] && echo "${error}" | sed -e 's,nc: ,,' > "${TMP_DIR}/${id}.ko.info";;
     esac
 
-    # verity status and write files
+    # Verify status and write files
     if [ "${rc}" -eq "${expected_rc}" ]; then
         echo "${name}" > "${TMP_DIR}/${id}.ok"
     else
@@ -69,9 +69,10 @@ while IFS="$(printf '\n')" read -r line; do
     name="$(get_element 3 "${line}")"
     host="$(get_element 4 "${line}")"
     check "${check}" "${host}" "${name}" "${code}" "${id}" &
-    : $((id++))
+    id=$((id + 1))  # Correct increment
 done < "${CHECKS_FILE}"
 wait
+
 OUTAGES_COUNT="$(ls "${TMP_DIR}/"*.ko | wc -l)"
 
 # Generate HTML
@@ -130,6 +131,7 @@ EOF
 
 # Cleanup and exit
 rm -r "${TMP_DIR}" 2>/dev/null
-if "${OUTAGE_RC}"; then
+
+if [ "${OUTAGE_RC}" = true ]; then
     exit "${OUTAGES_COUNT}"
 fi
