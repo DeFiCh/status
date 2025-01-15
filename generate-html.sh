@@ -48,6 +48,7 @@ check(){
     esac
 
     # Verify status and write files
+    echo "${name}: {rc} / ${expected_rc} // ${host} / ${id}"
     if [ "${rc}" -eq "${expected_rc}" ]; then
         echo "${name}" > "${TMP_DIR}/${id}.ok"
     else
