@@ -5,4 +5,3 @@ http,   200,    defiscan.live,                                https://defiscan.l
 http,   200,    evm.defichain.com,                            https://evm.defichain.com/
 http,   200,    wallet.defichain.com,                         https://wallet.defichain.com/api/v0/settings/flags
 http,   200,    api.status.jellyfishsdk.com,                  https://api.status.jellyfishsdk.com/blockchain
-
