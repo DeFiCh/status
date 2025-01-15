@@ -2,5 +2,4 @@ http,   200,    Network (through ocean.defichain.com),        https://ocean.defi
 http,   200,    ocean.defichain.com,                          https://ocean.defichain.com/v0/mainnet/stats
 http,   200,    defichain.com,                                https://defichain.com/
 http,   200,    defiscan.live,                                https://defiscan.live/
-http,   200,    testnet.ocean.jellyfishsdk.com,               https://testnet.ocean.jellyfishsdk.com/v0/testnet/stats
-http,   200,    changi.ocean.jellyfishsdk.com,                https://changi.ocean.jellyfishsdk.com/v0/changi/stats
+http,   200,    evm.defichain.com,                            https://evm.defichain.com/
